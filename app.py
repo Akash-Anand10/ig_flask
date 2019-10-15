@@ -3,11 +3,12 @@ from API.data import extract
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def welcome():
-    return '''<html><body><h1>Welcome to Instagram Media Comments Extractor!!</h1>
-    <p>For now, we have to pass the media url as parameters.
-    Please type in the Media url as parameter in the URL bar and press enter.</p></body></html>'''
+    # return '''<html><body><h1>Welcome to Instagram Media Comments Extractor!!</h1>
+    # <p>For now, we have to pass the media url as parameters.
+    # Please type in the Media url as parameter in the URL bar and press enter.</p></body></html>'''
+    return render_template('comments.html')
 
 @app.route('/comments/', methods=['GET', 'POST'])
 def comments():
